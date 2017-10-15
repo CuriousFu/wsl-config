@@ -118,6 +118,20 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+alias upd='sudo apt-get update && sudo apt-get upgrade'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # Run twolfson/sexy-bash-prompt
 #. ~/.bash_prompt
+gup ()
+{
+	local mymessage="next update";
+
+	# if $1 not zero length
+	if [ ! -z "$1" ]; then
+		mymessage=$1
+	fi
+
+	git add .
+	git commit -m "$mymessage"
+	git push
+}
