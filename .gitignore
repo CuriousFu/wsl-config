@@ -2,4 +2,4 @@ tags
 build
 output
 bash
-.git_add_commit_push.sh
+*.swp
