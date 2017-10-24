@@ -1,2 +1,3 @@
-ln -s /mnt/c/Users/jyfu2/Downloads/ /home/fu/Downloads/
-ln -s /mnt/c/Users/jyfu2/Desktop/ /home/fu/Downloads/
+ln -s /mnt/c/Users/$yourname/Downloads/ /home/fu/Downloads/
+ln -s /mnt/c/Users/$yourname/Desktop/ /home/fu/Downloads/
+ln -s /mnt/c/Users/$yourname/Desktop/ /home/fu/Downloads/
