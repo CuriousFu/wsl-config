@@ -4,4 +4,5 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install vim shellcheck git-extras pip 
 pip install classifier
+sudo apt-get install grc
 
