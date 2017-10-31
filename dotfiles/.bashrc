@@ -5,6 +5,8 @@
 #  Bunch-o-predefined colors.  Makes reading code easier than escape sequences.
 #  I don't remember where I found this.  o_O
 export EDITOR=vim
+#export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+
 # Reset
 Color_Off="\[\033[0m\]"       # Text Reset
 
@@ -137,7 +139,6 @@ gup ()
 }
  
 alias vi='vim'
-
 extract () {
 if [ -f $1 ] ; then
   case $1 in
@@ -158,4 +159,3 @@ if [ -f $1 ] ; then
      echo "'$1' is not a valid file"
  fi
 }
-
