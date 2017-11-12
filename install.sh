@@ -9,6 +9,7 @@ sudo apt-get install grc
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install neovim
+# icon ls
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/illinoisjackson/even-better-ls/master/install.sh)"
 LS_COLORS=$(ls_colors_generator)
 cat <<ENDOF >>.bashrc
