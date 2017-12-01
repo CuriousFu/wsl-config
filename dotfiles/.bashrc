@@ -110,7 +110,8 @@ PS1+="$NewLine         $Blue~>>> $Yellow"
    GIT_PROMPT_ONLY_IN_REPO=1
   source ~/.git-prompt.sh
   #source ~/.bash-git-prompt/gitprompt.sh
-[[ -s "/etc/grc.bashrc" ]] && source /etc/grc.bashrc
+#[[ -s "~/.grc.bashrc" ]] && source ~/.grc.bashrc
+source ~/.grc.bashrc
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -118,7 +119,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-alias upd='sudo apt-get update && sudo apt-get upgrade'
+alias upd='sudo apt-get update -y && sudo apt-get upgrade -y'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # Run twolfson/sexy-bash-prompt
 #. ~/.bash_prompt
