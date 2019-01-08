@@ -106,7 +106,7 @@ else \
   # @2 - Prompt when not in GIT repo
   echo " '$Yellow$PathShort$Color_Off' "; \
 fi)'
-PS1+="$NewLine         $Blue~>>> $Yellow"
+PS1+="$NewLine         $White~>>> $Yellow"
    GIT_PROMPT_ONLY_IN_REPO=1
   source ~/.git-prompt.sh
   #source ~/.bash-git-prompt/gitprompt.sh
@@ -119,8 +119,30 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-alias upd='sudo apt-get update -y && sudo apt-get upgrade -y'
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+alias python='python3'
+alias startdocker='sudo cgroupfs-mount && sudo service docker start'
+alias cdc='cd /mnt/c/'
+alias cdd='cd /mnt/d/'
+alias cde='cd /mnt/e/'
+alias cdf='cd /mnt/f/'
+alias cdg='cd /mnt/g/'
+alias cdh='cd /mnt/h/'
+#upd: update all of your packages!
+if [ ! -z "$(which brew)" ]; then
+  alias upd="brew update && brew upgrade"
+elif [ ! -z "$(which pacman)" ]; then
+  alias upd="sudo pacman -Syyu"
+elif [ ! -z "$(which apt)" ]; then
+  alias upd="sudo apt update && sudo apt upgrade && sudo apt full-upgrade"
+elif [ ! -z "$(which apt-get)" ]; then
+  alias upd ="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
+elif [ ! -z "$(which dnf)" ]; then
+  alias upd="sudo dnf upgrade"
+elif [ ! -z "$(which yum)" ]; then
+  alias upd="su -c 'yum update'"
+elif [ ! -z "$(which zypper)" ]; then
+  alias upd="sudo zypper update"
+fi
 # Run twolfson/sexy-bash-prompt
 #. ~/.bash_prompt
 alias push="sh ~/.push.sh"
@@ -160,3 +182,16 @@ if [ -f $1 ] ; then
      echo "'$1' is not a valid file"
  fi
 }
+function psg() {
+        if [ ! -z $1 ] ; then
+                echo "Grepping for processes matching $1..."
+                ps aux | grep $1
+        else
+                echo "!! Need name to grep for"
+        fi
+}
+function docker-clean {
+  docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs sudo docker rm && \
+  docker images | grep none | awk '{print $3}' | xargs -i docker rmi -f {}
+}
+
